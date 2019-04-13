@@ -1,0 +1,32 @@
+{
+  "name": "my-compiler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build-ts": "tsc -w",
+    "test": "jest --watchAll",
+    "start": "concurrently \"npm run build-ts\" \"npm run test\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/begoat/my-compiler.git"
+  },
+  "jest": {
+    "testMatch": [
+      "**/?(*.)+(spec|test).[j]s?(x)"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/plugin-proposal-class-properties": "^7.3.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.3.4",
+    "@babel/polyfill": "^7.2.5",
+    "@babel/preset-env": "^7.3.4",
+    "@types/jest": "^24.0.11",
+    "@types/node": "^11.11.3",
+    "concurrently": "^4.1.0",
+    "jest": "^24.5.0",
+    "typescript": "^3.3.3333"
+  }
+}
