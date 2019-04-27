@@ -1,5 +1,6 @@
 # macOS
 dist
+.idea
 
 # General
 .DS_Store
