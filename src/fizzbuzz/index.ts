@@ -1,3 +1,5 @@
+import { FizzBuzzType } from "./constants";
+
 export const fizzBuzz = {
   init() {
     this.filterRules = [];
@@ -22,17 +24,17 @@ phase1FizzBuzz.init();
 phase1FizzBuzz
   .addFilter((num: number) => {
     if (!(num % 5) && !(num % 3)) {
-      return "FizzBuzz";
+      return FizzBuzzType.FIZZBUZZ;
     }
   })
   .addFilter((num: number) => {
     if (!(num % 5)) {
-      return "Buzz";
+      return FizzBuzzType.BUZZ;
     }
   })
   .addFilter((num: number) => {
     if (!(num % 3)) {
-      return "Fizz";
+      return FizzBuzzType.FIZZ;
     }
   });
 
@@ -41,24 +43,24 @@ phase2FizzBuzz.init();
 phase2FizzBuzz
   .addFilter((num: any) => {
     if (!(num % 5) && !(num % 3)) {
-      return "FizzBuzz";
+      return FizzBuzzType.FIZZBUZZ;
     }
   })
   .addFilter((num: number) => {
     const numStr = num.toString();
     if (numStr.includes("3")) {
-      return "Fizz";
+      return FizzBuzzType.FIZZ;
     } else if (numStr.includes("5")) {
-      return "Buzz";
+      return FizzBuzzType.BUZZ;
     }
   })
   .addFilter((num: number) => {
     if (!(num % 5)) {
-      return "Buzz";
+      return FizzBuzzType.BUZZ;
     }
   })
   .addFilter((num: number) => {
     if (!(num % 3)) {
-      return "Fizz";
+      return FizzBuzzType.FIZZ;
     }
   });
