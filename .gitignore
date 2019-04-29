@@ -1,6 +1,7 @@
 # macOS
 dist
 .idea
+yarn-error.log
 
 # General
 .DS_Store
