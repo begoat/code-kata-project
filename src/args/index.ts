@@ -84,7 +84,7 @@ const regForL = {
 
 const regForP = {
   key: "p",
-  value: /^(\d+)/
+  value: /\d+/
 };
 
 const regForD = {
