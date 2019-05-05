@@ -47,8 +47,13 @@ describe("", () => {
       s: "1,2,-3,5",
       g: "this,is,a,list",
     }],
-    ["-l asd", "bad option -asd"],
+    ["-l asd", "bad value: asd"],
+    ["-l -asd", "unknown option -asd"],
     ["-p asd", "bad option -p"],
+    ["-s -1", {
+      s: "-1"
+    }],
+    ["-c as", "unknown option -c"]
   ].map((testCase: any ) => {
     const [testStr, expectedVal] = testCase;
     testing(testStr, expectedVal);

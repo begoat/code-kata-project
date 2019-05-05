@@ -8,6 +8,14 @@ function throwBadOption(val: string) {
   throw new Error(`bad option -${val}`);
 }
 
+function throwBadValue(val: string) {
+  throw new Error(`bad value: ${val}`);
+}
+
+function throwUnknownOption(val: string) {
+  throw new Error(`unknown option -${val}`);
+}
+
 const Args = {
   init() {
     this._rules = {};
@@ -34,10 +42,14 @@ const Args = {
     try {
       for (const token of usefulTokens) {
         if (!currentKey) { // current token is a flag
+          if (token[0] !== "-") {
+            throwBadValue(token); // 一个不需要value的flag后跟了一个value
+          }
+
           currentKey = token.substring(1);
           const valueObj = this.getRules()[currentKey];
           if (!valueObj) { // no such option registered
-            throwBadOption(token);
+            throwUnknownOption(currentKey); // 查不出来
           }
 
           const { value, defaultVal } = valueObj;
@@ -87,7 +99,7 @@ const regForG = {
 
 const regForS = {
   key: "s",
-  value: /^(\d+(,\d+)*)/
+  value: /\d+(,\d+)*/
 };
 
 const myArgs = Object.create(Args);
